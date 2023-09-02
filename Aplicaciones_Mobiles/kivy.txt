@@ -1,0 +1,1 @@
+Kivy es un Framework gratuito y de código abierto para desarrollar aplicaciones móviles y otro software de aplicación multitáctil con una interfaz de usuario neutral. Se distribuye según los términos de la licencia MIT y se puede ejecutar en Android, IOS, GNI/Linux, MacOs y Windows.
