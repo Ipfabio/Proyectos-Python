@@ -1,4 +1,5 @@
 from enum import Enum
+import keyboard
 
 
 class Movement(Enum):
@@ -30,10 +31,21 @@ def tetris():
 
     rotation = 0
 
-    (screen, rotation) = move_piece(screen, Movement.ROTATE, rotation)
-    (screen, rotation) = move_piece(screen, Movement.ROTATE, rotation)
-    (screen, rotation) = move_piece(screen, Movement.ROTATE, rotation)
-    (screen, rotation) = move_piece(screen, Movement.ROTATE, rotation)
+    while True:
+        event = keyboard.read_event()
+
+        if event.name == "esc":
+            break
+        elif event.event_type == keyboard.KEY_DOWN:
+            # Movimientos de la pieza
+            if event.name == "down":
+                (screen, rotation) = move_piece(screen, Movement.DOWN, rotation)
+            elif event.name == "right":
+                (screen, rotation) = move_piece(screen, Movement.RIGHT, rotation)
+            elif event.name == "left":
+                (screen, rotation) = move_piece(screen, Movement.LEFT, rotation)
+            elif event.name == "space":
+                (screen, rotation) = move_piece(screen, Movement.ROTATE, rotation)
 
 
 # Recibe pantalla (lista), movimiento(clase movimiento) y rotación indica el estado actual de la pieza
